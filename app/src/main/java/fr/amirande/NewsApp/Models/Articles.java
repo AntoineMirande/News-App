@@ -3,11 +3,11 @@ package fr.amirande.NewsApp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class Articles {
+public class Articles {
 
-    @SerializedName("Source")
+    @SerializedName("source")
     @Expose
-    private String source;
+    private Sources source;
 
     @SerializedName("author")
     @Expose
@@ -29,11 +29,11 @@ class Articles {
     @Expose
     private String publishedAt;
 
-    public String getSource() {
+    public Sources getSource() {
         return source;
     }
 
-    public void setSource(String source) {
+    public void setSource(Sources source) {
         this.source = source;
     }
 
