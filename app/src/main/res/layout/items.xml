@@ -36,7 +36,7 @@
                 android:text="TITLE"
                 android:padding="10dp"
                 android:textSize="20dp"
-                android:fontFamily="@font/azonix"
+                android:fontFamily="@font/primer"
                 android:textColor="@color/white"
                 android:id="@+id/newsTitle"/>
 
