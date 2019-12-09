@@ -3,29 +3,31 @@ package fr.amirande.NewsApp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Sources {
 
-    @SerializedName("id")
+    @SerializedName("status")
     @Expose
-    private String id;
+    private String status;
 
-    @SerializedName("name")
+    @SerializedName("sources")
     @Expose
-    private String name;
+    private List<Source> sources;
 
-    public String getId() {
-        return id;
+    public String getStatus() {
+        return status;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getName() {
-        return name;
+    public List<Source> getSources() {
+        return sources;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSources(List<Source> sources) {
+        this.sources = sources;
     }
 }

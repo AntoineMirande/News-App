@@ -21,6 +21,11 @@
         android:padding="10dp"
         android:textAlignment="center"/>
 
+    <Spinner
+        android:id="@+id/sources_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:scrollbars="vertical"

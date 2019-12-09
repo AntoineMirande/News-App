@@ -7,7 +7,7 @@ public class Articles {
 
     @SerializedName("source")
     @Expose
-    private Sources source;
+    private Source source;
 
     @SerializedName("author")
     @Expose
@@ -29,11 +29,11 @@ public class Articles {
     @Expose
     private String publishedAt;
 
-    public Sources getSource() {
+    public Source getSource() {
         return source;
     }
 
-    public void setSource(Sources source) {
+    public void setSource(Source source) {
         this.source = source;
     }
 
