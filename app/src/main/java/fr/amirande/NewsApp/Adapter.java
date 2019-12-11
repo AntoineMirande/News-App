@@ -21,10 +21,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     Context context;
     List<Articles> articles;
+    OnClickInterface onClickInterface;
 
-    public Adapter(Context context, List<Articles> articles) {
+    public Adapter(Context context, List<Articles> articles, OnClickInterface onClickInterface) {
         this.context = context;
         this.articles = articles;
+        this.onClickInterface = onClickInterface;
     }
 
     @NonNull
@@ -35,11 +37,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Articles a = articles.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        final Articles a = articles.get(position);
         holder.newsTitle.setText(a.getTitle());
         holder.newsSource.setText(a.getSource().getName());
         holder.newsDate.setText(a.getPublishedAt());
+        holder.newsTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickInterface.setClick(a);
+            }
+        });
 
         String imageUrl = a.getUrlToImage();
 

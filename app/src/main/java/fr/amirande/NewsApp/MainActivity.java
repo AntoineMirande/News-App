@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Adapter adapter;
     Spinner spinnerView;
     ArrayAdapter<String> sourceArrayAdapter;
+    private OnClickInterface onclickInterface;
     final String language = getLanguage();
     final String API_KEY = "d31f5fa5f03443dd8a1b9e3fde92ec34";
 
@@ -54,6 +57,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             recyclerView = findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            onclickInterface = new OnClickInterface() {
+                @Override
+                public void setClick(Articles a) {
+                    Log.d("debug", "setClick: " + a.getTitle());
+                    Intent i = new Intent(MainActivity.this, DetailsActivity.class);
+                    Gson gS = new Gson();
+                    String target = gS.toJson(a);
+                    i.putExtra("article", target);
+                    startActivity(i);
+                }
+            };
+
             retrieveNews("google-news-fr", language, API_KEY);
         } else {
             try {
@@ -100,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 if (response.isSuccessful() && response.body().getArticles() != null) {
                     articles.clear();
                     articles = response.body().getArticles();
-                    adapter = new Adapter(MainActivity.this, articles);
+                    adapter = new Adapter(MainActivity.this, articles, onclickInterface);
                     recyclerView.setAdapter(adapter);
                 }
             }
