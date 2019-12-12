@@ -42,7 +42,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.newsTitle.setText(a.getTitle());
         holder.newsSource.setText(a.getSource().getName());
         holder.newsDate.setText(a.getPublishedAt());
-        holder.newsTitle.setOnClickListener(new View.OnClickListener() {
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickInterface.setClick(a);

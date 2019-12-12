@@ -26,10 +26,16 @@ public class DetailsActivity extends AppCompatActivity {
         Gson gS = new Gson();
         article = gS.fromJson(target, Articles.class);
 
-        TextView title = findViewById(R.id.articleTitle);
+        TextView title = findViewById(R.id.title);
         title.setText(article.getTitle());
-        TextView date = findViewById(R.id.articleDate);
+        TextView date = findViewById(R.id.date);
         date.setText(article.getPublishedAt());
+        TextView source = findViewById(R.id.source);
+        source.setText(article.getSource().getName());
+        TextView desc = findViewById(R.id.description);
+        desc.setText(article.getDescription());
+        TextView author = findViewById(R.id.author);
+        author.setText(article.getAuthor());
         String imageUrl = article.getUrlToImage();
         ImageView imageView = (ImageView)findViewById(R.id.image);
         Picasso.with(this).load(imageUrl).into(imageView);

@@ -15,9 +15,9 @@
         android:text="News"
         android:fontFamily="@font/azonix"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:background="@color/grey"
+        android:background="@color/colorAccent"
         android:padding="10dp"
         android:textAlignment="center"/>
 
