@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
