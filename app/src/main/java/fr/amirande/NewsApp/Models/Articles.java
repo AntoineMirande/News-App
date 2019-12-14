@@ -29,6 +29,10 @@ public class Articles {
     @Expose
     private String publishedAt;
 
+    @SerializedName("url")
+    @Expose
+    private String url;
+
     public Source getSource() {
         return source;
     }
@@ -75,5 +79,13 @@ public class Articles {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -1,8 +1,11 @@
 package fr.amirande.NewsApp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,5 +42,24 @@ public class DetailsActivity extends AppCompatActivity {
         String imageUrl = article.getUrlToImage();
         ImageView imageView = (ImageView)findViewById(R.id.image);
         Picasso.with(this).load(imageUrl).into(imageView);
+
+        Button btnClose = (Button) findViewById(R.id.close);
+        Button btnUrl = (Button) findViewById(R.id.openurl);
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btnUrl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsActivity.this, WebViewActivity.class);
+                intent.putExtra("url", article.getUrl());
+                startActivity(intent);
+            }
+        });
     }
 }
