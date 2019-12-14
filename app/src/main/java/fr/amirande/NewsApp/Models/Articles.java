@@ -74,7 +74,10 @@ public class Articles {
     }
 
     public String getPublishedAt() {
-        return publishedAt;
+        if(publishedAt != null){
+            return publishedAt.replace("T", " ").replace("Z", "");
+        }
+        return "";
     }
 
     public void setPublishedAt(String publishedAt) {
