@@ -48,13 +48,13 @@
 
                 <TextView
                     android:id="@+id/newsSource"
-                    android:layout_width="wrap_content"
+                    android:layout_width="230dp"
                     android:layout_height="wrap_content"
-                    android:maxWidth="200dp"
                     android:ems="15"
                     android:fontFamily="@font/primer"
-                    android:text="Source"
+                    android:maxWidth="200dp"
                     android:padding="10dp"
+                    android:text="Source"
                     android:textColor="@color/white"
                     android:textSize="16dp" />
 
